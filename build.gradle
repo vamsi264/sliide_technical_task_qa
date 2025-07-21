@@ -1,0 +1,70 @@
+buildscript {
+    ext {
+        SERENITY_VERSION = "4.0.30" as Object
+    }
+    repositories {
+        maven {
+            url 'https://repo.maven.apache.org/maven2'
+        }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+    dependencies {
+        classpath(
+                'net.serenity-bdd:serenity-gradle-plugin:4.0.30',
+                'net.serenity-bdd:serenity-reports:4.0.30',
+                'net.serenity-bdd:serenity-single-page-report:4.0.30',
+                'net.serenity-bdd:serenity-emailer:2.1.0',
+        )
+    }
+}
+plugins {
+    id 'java'
+    id 'idea'
+    id 'eclipse'
+    id "nebula.lint" version "17.6.0"
+}
+apply plugin: "net.serenity-bdd.serenity-gradle-plugin"
+
+gradleLint.rules = ['dependency-parentheses', 'dependency-tuple']
+
+tasks.withType(JavaCompile).configureEach {
+    sourceCompatibility = JavaVersion.VERSION_16
+    targetCompatibility = JavaVersion.VERSION_16
+    options.compilerArgs += ['-Xdoclint:none', '-Xlint:none', '-nowarn']
+}
+
+repositories {
+    maven {
+        url 'https://repo.maven.apache.org/maven2'
+    }
+}
+
+defaultTasks 'clean', 'clearReports', 'autoLintGradle', 'test', 'aggregate', 'reports'
+println "project.serenity.outputDirectory = ${project.serenity.outputDirectory}"
+
+dependencies {
+    testImplementation(
+            'ch.qos.logback:logback-classic:1.5.13',
+            'org.assertj:assertj-core:3.23.1',
+            'org.apache.commons:commons-text:1.10.0',
+            'net.serenity-bdd:serenity-junit:4.0.30',
+            'net.serenity-bdd:serenity-cucumber:4.0.30',
+    )
+}
+
+serenity {
+    testRoot = "sliide_technical_task_qa" //project name
+    requirementsBaseDir = "src/test/resources/features"
+}
+
+test {
+    testLogging.showCauses(true)
+    testLogging.showStandardStreams(true)
+    systemProperties(System.getProperties())
+}
+
+test.finalizedBy(aggregate)
+gradle.startParameter.continueOnFailure = true

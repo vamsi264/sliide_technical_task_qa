@@ -1,0 +1,16 @@
+*~
+*.DS_Store
+._*
+.idea
+.gradle
+build/
+history/
+out/
+target/
+*.iml
+.classpath
+.project
+.settings/
+*.log
+*-lock.json
+.idea/*.xml
