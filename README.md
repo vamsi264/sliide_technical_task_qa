@@ -75,7 +75,8 @@ project-root/
 
 1.  **Clone the Project:** Extract the contents of the project file to a location on your computer.
 2.  **Open Terminal/Command Prompt:** Navigate into the root directory of the extracted project.
-3.  **Run Tests using Gradle Wrapper:**
+3.  **Provide values for TEST_USERNAME and TEST_PASSWORD as System Environment Variables. 
+4.  **Run Tests using Gradle Wrapper:**
     *   On Linux/macOS: Execute `./gradlew clean test` or
         `./gradlew clean clearReports autoLintGradle test aggregate reports -Dcucumber.filter.tags="@Login and @News"`
     *   On Windows: Execute `gradlew.bat clean test`
@@ -85,7 +86,7 @@ project-root/
     *   `clean`: Cleans the previous build outputs.
     *   `test`: Compiles the code and runs the tests defined in the `TestRunner` class, which in turn executes the Cucumber features.
 
-4.  **View Reports:** After the tests finish execution, Gradle and Serenity BDD will generate reports.
+5.  **View Reports:** After the tests finish execution, Gradle and Serenity BDD will generate reports.
     *   **Serenity Report:** The primary, detailed HTML report can be found at:
         `target/site/serenity/index.html`
         Open this file in your web browser to view comprehensive test results, including step details, execution times, and requirements coverage.
