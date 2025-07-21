@@ -94,7 +94,7 @@ project-root/
 
 ## Code Highlights
 
-*   **Clean Code:** Efforts were made to follow clean code practices, including meaningful naming, clear method structures, and comments explaining the purpose of code sections.
+*   **Clean Code:** Efforts were made to follow clean code practices, including meaningful naming, clear method structures.
 *   **BDD with Cucumber:** Scenarios are written in Gherkin syntax in `.feature` files, promoting collaboration and clear understanding of test goals.
 *   **Step Definitions:** The `ScenarioSteps.java` classes links the Gherkin steps to Java code that interacts.
 *   **Edge Cases:** Specific scenarios are included to test invalid inputs and error conditions.
