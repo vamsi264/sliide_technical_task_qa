@@ -75,7 +75,7 @@ project-root/
 
 1.  **Clone the Project:** Extract the contents of the project file to a location on your computer.
 2.  **Open Terminal/Command Prompt:** Navigate into the root directory of the extracted project.
-3.  **Provide values for TEST_USERNAME and TEST_PASSWORD as System Environment Variables. 
+3.  **System Environment Variables:** Provide values for TEST_USERNAME and TEST_PASSWORD. 
 4.  **Run Tests using Gradle Wrapper:**
     *   On Linux/macOS: Execute `./gradlew clean test` or
         `./gradlew clean clearReports autoLintGradle test aggregate reports -Dcucumber.filter.tags="@Login and @News"`
