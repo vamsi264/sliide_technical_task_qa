@@ -1,21 +1,21 @@
-@News @test
+@News
 Feature: News Page Screen
   As a user
   I want to see my news screen
 
   Scenario: News images are loaded
-    Given The user successfully logged in to the app
-    When There is internet connection
-    Then Images are displayed in the rows on the list
+    Given the user successfully logged in to the app
+    When there is internet connection
+    Then the images are displayed in the rows on the list
 
     #testing failed but code implemented to pass for now with message
   Scenario: Failed to load images
-    Given The user successfully logged in to the app
-    When There is no internet connection
+    Given the user successfully logged in to the app
+    When there is no internet connection
     And the user refreshes the page
-    Then Error message is displayed with a Retry button
+    Then the error message is displayed with a Retry button
 
   Scenario: News card is clicked
-    Given The news cards are successfully loaded on the screen
-    When The user clicks one of the cards
-    Then User is navigated to the external browser with a corresponding article loaded
+    Given the news cards are successfully loaded on the screen
+    When the user clicks one of the cards
+    Then the user is navigated to the external browser with a corresponding article loaded

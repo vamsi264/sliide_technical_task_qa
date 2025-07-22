@@ -19,24 +19,24 @@ public class NewsScenarioSteps {
     @Steps
     private LoginSteps loginSteps;
 
-    @Given("The user successfully logged in to the app")
+    @Given("the user successfully logged in to the app")
     public void theUserSuccessfullyLoggedInToTheApp() {
         loginSteps.user_credentials(username,password);
         loginSteps.hit_login_button();
     }
 
-    @When("There is internet connection")
+    @When("there is internet connection")
     public void thereIsInternetConnection() {
         newsSteps.internet_connection_status_check();
     }
 
-    @Then("Images are displayed in the rows on the list")
+    @Then("the images are displayed in the rows on the list")
     public void imagesAreDisplayedInTheRowsOnTheList() {
         newsSteps.verify_news_page_screen();
         newsSteps.scrolling_screen_upwards();
     }
 
-    @When("There is no internet connection")
+    @When("there is no internet connection")
     public void thereIsNoInternetConnection() {
         newsSteps.internet_turned_off();
     }
@@ -46,23 +46,23 @@ public class NewsScenarioSteps {
         newsSteps.scroll_down_screen();
     }
 
-    @Then("Error message is displayed with a Retry button")
+    @Then("the error message is displayed with a Retry button")
     public void failedToLoadNewsErrorMessageIsDisplayedWithARetryButton() {
         newsSteps.verify_news_page_screen();
     }
 
-    @Given("The news cards are successfully loaded on the screen")
+    @Given("the news cards are successfully loaded on the screen")
     public void theNewsCardsAreSuccessfullyLoadedOnTheScreen() {
         theUserSuccessfullyLoggedInToTheApp();
         newsSteps.verify_news_page_screen();
     }
 
-    @When("The user clicks one of the cards")
+    @When("the user clicks one of the cards")
     public void theUserClicksOneOfTheCards() {
         newsSteps.click_news_article();
     }
 
-    @Then("User is navigated to the external browser with a corresponding article loaded")
+    @Then("the user is navigated to the external browser with a corresponding article loaded")
     public void userIsNavigatedToTheExternalBrowserWithACorrespondingArticleLoaded() {
         newsSteps.verify_news_article_on_browser();
     }
